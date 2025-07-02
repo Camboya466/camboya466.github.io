@@ -38,7 +38,13 @@
 <body>
   <div id="popup">
     <img src="popup1.png" style="width:100%; height:100%" />
-    <button id="closeBtn" onclick="document.getElementById('popup').style.display='none'">Cerrar</button>
+    <button id="closeBtn" onclick="window.parent.postMessage('eliminarIframe', "*")">Cerrar</button>
   </div>
+ <script>
+    function eliminarIframe() {
+      // Envía mensaje al documento padre
+      window.parent.postMessage("eliminarIframe", "*");
+    }
+  </script>
 </body>
 </html>
